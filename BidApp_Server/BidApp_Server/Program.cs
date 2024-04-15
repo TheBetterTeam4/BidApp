@@ -31,8 +31,10 @@ namespace BidApp_Server
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             
+
+            //Still looking to get this working on multiple computers :)
             ApplicationConfiguration.Initialize();
-            WebSocketServer wss = new WebSocketServer(8001);
+            WebSocketServer wss = new WebSocketServer("ws://192.168.75.1:8001");
             wss.AddWebSocketService<TestService>("/Test");
             wss.Start();
             //Console.OpenStandardInput();
