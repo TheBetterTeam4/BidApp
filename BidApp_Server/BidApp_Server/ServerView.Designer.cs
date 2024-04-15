@@ -1,6 +1,6 @@
 ﻿namespace BidApp_Server
 {
-    partial class Form1
+    partial class ServerView
     {
         /// <summary>
         ///  Required designer variable.

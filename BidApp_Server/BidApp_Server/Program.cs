@@ -1,6 +1,26 @@
+using Microsoft.VisualBasic.Logging;
+using System.Windows.Forms;
+using WebSocketSharp;
+using WebSocketSharp.Server;
+
 namespace BidApp_Server
 {
-    internal static class Program
+    public class TestService : WebSocketBehavior
+    {
+        protected override void OnMessage(MessageEventArgs e)
+        {
+            Console.WriteLine("Received from client: " + e.Data);
+
+            Send("Data from server");
+        }
+
+        protected override void OnError(WebSocketSharp.ErrorEventArgs e)
+        {
+            // do nothing
+        }
+    }
+
+    public class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -10,8 +30,15 @@ namespace BidApp_Server
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            WebSocketServer wss = new WebSocketServer(8001);
+            wss.AddWebSocketService<TestService>("/Test");
+            wss.Start();
+            //Console.OpenStandardInput();
+            //Console.ReadKey(true);
+            Application.Run(new ServerView());
+            wss.Stop();
         }
     }
 }
