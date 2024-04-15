@@ -14,7 +14,7 @@ namespace BidApp_Client
 
         public ClientCommCtrl()
         {
-            ws = new WebSocketSharp.WebSocket("ws://127.0.0.1:8001/Test");
+            ws = new WebSocketSharp.WebSocket("ws://192.168.8.1:8001/Test");
             ws.Connect();
         }
 
