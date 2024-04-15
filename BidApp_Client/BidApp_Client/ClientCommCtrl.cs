@@ -14,8 +14,16 @@ namespace BidApp_Client
 
         public ClientCommCtrl()
         {
-            ws = new WebSocketSharp.WebSocket("ws://192.168.8.1:8001/Test");
+            ws = new WebSocketSharp.WebSocket("ws://192.168.80.1:8001/Test");
             ws.Connect();
+
+            //Check Alive
+            bool conn = false;
+            if (ws.IsAlive)
+            {
+                conn = true;
+            }
+            MessageBox.Show("Connection: " + conn);
         }
 
         public void SendMessage(string message)
