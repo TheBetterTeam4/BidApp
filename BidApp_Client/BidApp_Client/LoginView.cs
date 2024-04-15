@@ -3,11 +3,11 @@ using System.Windows.Forms;
 
 namespace BidApp_Client
 {
-    public partial class Form1 : Form
+    public partial class LoginView : Form
     {
         private ClientCommCtrl commCtrl = new();
 
-        public Form1()
+        public LoginView()
         {
             InitializeComponent();
         }

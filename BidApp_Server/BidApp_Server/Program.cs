@@ -34,7 +34,7 @@ namespace BidApp_Server
 
             //Still looking to get this working on multiple computers :)
             ApplicationConfiguration.Initialize();
-            WebSocketServer wss = new WebSocketServer("ws://192.168.75.1:8001");
+            WebSocketServer wss = new WebSocketServer("ws://192.168.80.1:8001");
             wss.AddWebSocketService<TestService>("/Test");
             wss.Start();
             //Console.OpenStandardInput();
