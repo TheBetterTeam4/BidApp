@@ -32,7 +32,7 @@ namespace BidApp_Server
             // see https://aka.ms/applicationconfiguration.
             
             ApplicationConfiguration.Initialize();
-            WebSocketServer wss = new WebSocketServer("ws://192.168.80.1:8001");
+            WebSocketServer wss = new WebSocketServer("ws://10.130.160.101:8001");
             wss.AddWebSocketService<TestService>("/Test");
             wss.Start();
             //Console.OpenStandardInput();
